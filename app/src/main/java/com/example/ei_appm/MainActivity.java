@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        Task task1 = new Task(42,"Exemple de tâche", 3,"15/09/19");
+        Task task1 = new Task("Exemple de tâche", 3,"15/09/19");
 
         TaskBDD taskBDD = new TaskBDD(this);
         taskBDD.openForWrite();

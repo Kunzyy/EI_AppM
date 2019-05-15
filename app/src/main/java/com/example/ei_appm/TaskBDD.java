@@ -50,6 +50,12 @@ public class TaskBDD {
         bdd.execSQL(request);
     }
 
+    public void deleteTask(String name) {
+        String request = "DELETE FROM " + TABLE_TASKS + " WHERE " + COL_NAME +" = " +name+";";
+        System.out.println(request);
+        bdd.execSQL(request);
+    }
+
     public int updateTask(int id, Task task) {
         ContentValues content = new ContentValues();
         content.put(COL_NAME, task.getName());
@@ -74,7 +80,6 @@ public class TaskBDD {
             return null;
         }
         Task task = new Task();
-        task.setId(c.getInt(NUM_COL_ID));
         task.setName(c.getString(NUM_COL_NAME));
 
         c.close();
@@ -99,7 +104,6 @@ public class TaskBDD {
         ArrayList<Task> taskList = new ArrayList<> ();
         while (c.moveToNext()) {
             Task task = new Task();
-            task.setId(c.getInt(c.getColumnIndex(COL_ID)));
             task.setName(c.getString(c.getColumnIndex(COL_NAME)));
             task.setDuree(c.getInt(c.getColumnIndex(COL_DUREE)));
             task.setDate(c.getString(c.getColumnIndex(COL_DATE)));
