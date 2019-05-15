@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 
 import java.util.ArrayList;
 
-public class TaskBDD {
+public class TaskSQLite {
     private static final int VERSION = 1;
     private static final String NOM_BDD = "tasks.db";
 
@@ -22,7 +22,7 @@ public class TaskBDD {
     private SQLiteDatabase bdd;
     private TaskDataBase tasks;
 
-    public TaskBDD(Context context) {
+    public TaskSQLite(Context context) {
         tasks = new TaskDataBase(context, NOM_BDD, null, VERSION);
     }
 
