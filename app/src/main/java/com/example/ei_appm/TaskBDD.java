@@ -49,7 +49,7 @@ public class TaskBDD {
     }
 
     public void updateTask(Task task) {
-        String request = "UPDATE " + TABLE_TASKS + " SET " + COL_DUREE + " = " + task.getDuree() + COL_DATE + " = " + task.getDate() + " WHERE " + COL_NAME + " = " + task.getName() ;
+        String request = "UPDATE " + TABLE_TASKS + " SET " + COL_DUREE + " = '" + task.getDuree() +  "'," + COL_DATE + " = '" + task.getDate() + "' WHERE " + COL_NAME + " = '" + task.getName() +"';";
         bdd.execSQL(request);
     }
 

@@ -31,7 +31,6 @@ public class ajout extends AppCompatActivity {
 
                 String edate = et1.getText().toString();
                 int eduree = Integer.parseInt(et2.getText().toString());
-                System.out.println("Test : " + eduree);
                 String etache = et3.getText().toString();
                 Task task1 = new Task(etache, eduree, edate);
                 writeBDD(task1);
