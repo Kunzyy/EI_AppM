@@ -5,7 +5,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 
 public class modif extends AppCompatActivity {
 
@@ -14,9 +13,9 @@ public class modif extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_modif);
 
-        Button baj = (Button) findViewById(R.id.bsupp);
+        Button bmodif = (Button) findViewById(R.id.btn2modif);
 
-        baj.setOnClickListener(new View.OnClickListener() {
+        bmodif.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String edate =  findViewById(R.id.et3).toString();

@@ -74,13 +74,15 @@
         android:layout_marginTop="100dp" />
 
     <Button
+        android:id="@+id/btn2modif"
         android:layout_height="100dp"
         android:layout_row="4"
         android:layout_gravity="center|fill_horizontal"
-        android:text="Supprimer "
+        android:text="rModifie"
         android:textSize="15dip"
         android:layout_column="0"
-        android:layout_columnSpan="3"/>
+        android:layout_columnSpan="3"
+        />
 
 
 
