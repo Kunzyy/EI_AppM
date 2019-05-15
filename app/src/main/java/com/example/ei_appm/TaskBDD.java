@@ -44,11 +44,10 @@ public class TaskBDD {
         return bdd;
     }
 
-    public long insertTask(Task task) {
-        ContentValues content = new ContentValues();
-        content.put(COL_NAME, task.getName());
-
-        return bdd.insert(TABLE_TASKS, null, content);
+    public void insertTask(Task task) {
+        String request = "INSERT INTO " + TABLE_TASKS + " ( " + COL_NAME + "," + COL_DUREE+ "," + COL_DATE + ") VALUES ( '" + task.getName() + "','" + task.getDuree()+ "','" + task.getDate() + "')";
+        System.out.println(request);
+        bdd.execSQL(request);
     }
 
     public int updateTask(int id, Task task) {
@@ -82,19 +81,28 @@ public class TaskBDD {
         return task;
     }
 
+
     public ArrayList<Task> getAllTasks() {
-        Cursor c = bdd.query(TABLE_TASKS, new String[] { COL_ID, COL_NAME,
-                COL_DUREE,COL_DATE }, null, null, null, null, COL_NAME);
+
+        String request = "SELECT * FROM " + TABLE_TASKS;
+
+        Cursor c = bdd.rawQuery(request,null);
+
+        c.moveToFirst();
+
+
         if (c.getCount() == 0) {
             c.close();
             return null;
         }
+        System.out.println("Coucou");
         ArrayList<Task> taskList = new ArrayList<> ();
         while (c.moveToNext()) {
             Task task = new Task();
-            task.setId(c.getInt(NUM_COL_ID));
-            task.setName(c.getString(NUM_COL_NAME));
-
+            task.setId(c.getInt(c.getColumnIndex(COL_ID)));
+            task.setName(c.getString(c.getColumnIndex(COL_NAME)));
+            task.setDuree(c.getInt(c.getColumnIndex(COL_DUREE)));
+            task.setDate(c.getString(c.getColumnIndex(COL_DATE)));
             taskList.add(task);
         }
         c.close();

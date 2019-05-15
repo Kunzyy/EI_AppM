@@ -14,7 +14,7 @@ public class TaskSQLite extends SQLiteOpenHelper {
 
 
         private static final String CREATE_BDD = "CREATE TABLE " + TABLE_TASKS + " (" +
-                COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COL_NAME + " TEXT NOT NULL," + COL_DUREE + " INTEGER NOT NULL," + COL_DATE +" DATE"+");";
+                COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COL_NAME + " TEXT NOT NULL, " + COL_DUREE + " INTEGER NOT NULL, " + COL_DATE +" TEXT NOT NULL "+");";
 
         public TaskSQLite(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
             super (context, name, factory, version);

@@ -6,11 +6,11 @@ public class Task {
     private int id;
     private String name;
     private int duree;
-    private Date date;
+    private String date;
 
     public Task() {}
 
-    public Task(int id,String name, int duree, Date date) {
+    public Task(int id,String name, int duree, String date) {
         this.id = id;
         this.name = name;
         this.duree = duree;
@@ -25,11 +25,11 @@ public class Task {
         this.duree = duree;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
