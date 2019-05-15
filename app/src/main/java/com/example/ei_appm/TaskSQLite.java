@@ -64,7 +64,7 @@ public class TaskSQLite {
 
     public Task getTask(String name) {
         Cursor c = bdd.query(TABLE_TASKS, new String[] { COL_ID, COL_NAME,
-                        COL_DUREE }, COL_NAME + " LIKE \"" + name + "\"", null, null,
+                        COL_DUREE,COL_DATE }, COL_NAME + " LIKE \"" + name + "\"", null, null,
                 null, COL_NAME);
         return cursorToTask(c);
     }
@@ -84,7 +84,7 @@ public class TaskSQLite {
 
     public ArrayList<Task> getAllTasks() {
         Cursor c = bdd.query(TABLE_TASKS, new String[] { COL_ID, COL_NAME,
-                COL_DUREE }, null, null, null, null, COL_NAME);
+                COL_DUREE,COL_DATE }, null, null, null, null, COL_NAME);
         if (c.getCount() == 0) {
             c.close();
             return null;
