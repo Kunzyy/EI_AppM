@@ -1,8 +1,5 @@
 package com.example.ei_appm;
 
-
-import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
@@ -26,9 +23,9 @@ public class MainActivity extends AppCompatActivity {
         taskBDD.openForWrite();
         taskBDD.insertTask(task1);
 
-        ArrayList<Task> livreList = taskBDD.getAllTasks();
+        ArrayList<Task> taskList = taskBDD.getAllTasks();
         taskBDD.close();
-        ArrayAdapter<Task> adapter = new ArrayAdapter<Task>(this, android.R.layout.simple_list_item_1, livreList);
+        ArrayAdapter<Task> adapter = new ArrayAdapter<Task>(this, android.R.layout.simple_list_item_1, taskList);
         list.setAdapter(adapter);
 
     }
