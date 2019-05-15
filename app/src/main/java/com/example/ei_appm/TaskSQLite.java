@@ -16,8 +16,10 @@ public class TaskSQLite {
     private static final int NUM_COL_ID = 0;
     private static final String COL_NAME = "NAME";
     private static final int NUM_COL_NAME = 1;
-    private static final String COL_DESC = "DESCRIPTION";
-    private static final int NUM_COL_DESC = 2;
+    private static final String COL_DUREE = "DUREE";
+    private static final int NUM_COL_DUREE = 2;
+    private static final String COL_DATE = "DATE";
+    private static final int NUM_COL_DATE = 3;
 
     private SQLiteDatabase bdd;
     private TaskDataBase tasks;
@@ -62,7 +64,7 @@ public class TaskSQLite {
 
     public Task getTask(String name) {
         Cursor c = bdd.query(TABLE_TASKS, new String[] { COL_ID, COL_NAME,
-                        COL_DESC }, COL_NAME + " LIKE \"" + name + "\"", null, null,
+                        COL_DUREE }, COL_NAME + " LIKE \"" + name + "\"", null, null,
                 null, COL_NAME);
         return cursorToTask(c);
     }
@@ -82,7 +84,7 @@ public class TaskSQLite {
 
     public ArrayList<Task> getAllTasks() {
         Cursor c = bdd.query(TABLE_TASKS, new String[] { COL_ID, COL_NAME,
-                COL_DESC }, null, null, null, null, COL_NAME);
+                COL_DUREE }, null, null, null, null, COL_NAME);
         if (c.getCount() == 0) {
             c.close();
             return null;
