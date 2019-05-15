@@ -59,12 +59,7 @@ public class TaskBDD {
         bdd.execSQL(request);
     }
 
-    public int updateTask(int id, Task task) {
-        ContentValues content = new ContentValues();
-        content.put(COL_NAME, task.getName());
 
-        return bdd.update(TABLE_TASKS, content, COL_ID + " = " + id, null);
-    }
 
     public int removeTask(String name) {
         return bdd.delete(TABLE_TASKS, COL_NAME + " = " + name, null);

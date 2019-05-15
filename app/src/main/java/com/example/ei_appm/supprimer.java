@@ -20,7 +20,7 @@ public class supprimer extends AppCompatActivity {
                 String nom = findViewById(R.id.et1).toString();
                 TaskBDD taskBDD = new TaskBDD(getParent());
                 taskBDD.openForWrite();
-                taskBDD.removeTask(nom);
+                taskBDD.deleteTask(nom);
                 taskBDD.close();
             }
         });
