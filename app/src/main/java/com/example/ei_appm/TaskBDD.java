@@ -1,6 +1,5 @@
 package com.example.ei_appm;
 
-import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -46,39 +45,16 @@ public class TaskBDD {
 
     public void insertTask(Task task) {
         String request = "INSERT INTO " + TABLE_TASKS + " ( " + COL_NAME + "," + COL_DUREE+ "," + COL_DATE + ") VALUES ( '" + task.getName() + "','" + task.getDuree()+ "','" + task.getDate() + "')";
-        System.out.println(request);
         bdd.execSQL(request);
     }
 
-    public int updateTask(int id, Task task) {
-        ContentValues content = new ContentValues();
-        content.put(COL_NAME, task.getName());
-
-        return bdd.update(TABLE_TASKS, content, COL_ID + " = " + id, null);
+    public void updateTask(Task task) {
+        String request = "UPDATE " + TABLE_TASKS + " SET " + COL_DUREE + " = " + task.getDuree() + COL_DATE + " = " + task.getDate() + " WHERE " + COL_NAME + " = " + task.getName() ;
+        bdd.execSQL(request);
     }
 
     public int removeTask(String name) {
         return bdd.delete(TABLE_TASKS, COL_NAME + " = " + name, null);
-    }
-
-    public Task getTask(String name) {
-        Cursor c = bdd.query(TABLE_TASKS, new String[] { COL_ID, COL_NAME,
-                        COL_DUREE,COL_DATE }, COL_NAME + " LIKE \"" + name + "\"", null, null,
-                null, COL_NAME);
-        return cursorToTask(c);
-    }
-
-    public Task cursorToTask(Cursor c) {
-        if (c.getCount() == 0) {
-            c.close();
-            return null;
-        }
-        Task task = new Task();
-        task.setId(c.getInt(NUM_COL_ID));
-        task.setName(c.getString(NUM_COL_NAME));
-
-        c.close();
-        return task;
     }
 
 
@@ -99,7 +75,6 @@ public class TaskBDD {
         ArrayList<Task> taskList = new ArrayList<> ();
         while (c.moveToNext()) {
             Task task = new Task();
-            task.setId(c.getInt(c.getColumnIndex(COL_ID)));
             task.setName(c.getString(c.getColumnIndex(COL_NAME)));
             task.setDuree(c.getInt(c.getColumnIndex(COL_DUREE)));
             task.setDate(c.getString(c.getColumnIndex(COL_DATE)));

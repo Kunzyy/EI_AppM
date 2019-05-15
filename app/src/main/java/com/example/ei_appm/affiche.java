@@ -22,7 +22,13 @@ public class affiche extends AppCompatActivity {
         taskBDD.openForWrite();
         ArrayList<Task> taskList = taskBDD.getAllTasks();
         taskBDD.close();
-        System.out.println(taskList);
+
+        int sumHours = 0;
+        for (Task i : taskList)
+        {
+            sumHours+= i.getDuree();
+        }
+        txt.setText("Vous avez passé " + sumHours + " heures sur votre projet");
         ArrayAdapter<Task> adapter = new ArrayAdapter<Task>(this, android.R.layout.simple_list_item_1, taskList);
         list.setAdapter(adapter);
     }
