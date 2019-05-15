@@ -1,6 +1,5 @@
 package com.example.ei_appm;
 
-import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -46,7 +45,11 @@ public class TaskBDD {
 
     public void insertTask(Task task) {
         String request = "INSERT INTO " + TABLE_TASKS + " ( " + COL_NAME + "," + COL_DUREE+ "," + COL_DATE + ") VALUES ( '" + task.getName() + "','" + task.getDuree()+ "','" + task.getDate() + "')";
-        System.out.println(request);
+        bdd.execSQL(request);
+    }
+
+    public void updateTask(Task task) {
+        String request = "UPDATE " + TABLE_TASKS + " SET " + COL_DUREE + " = " + task.getDuree() + COL_DATE + " = " + task.getDate() + " WHERE " + COL_NAME + " = " + task.getName() ;
         bdd.execSQL(request);
     }
 
@@ -65,25 +68,6 @@ public class TaskBDD {
 
     public int removeTask(String name) {
         return bdd.delete(TABLE_TASKS, COL_NAME + " = " + name, null);
-    }
-
-    public Task getTask(String name) {
-        Cursor c = bdd.query(TABLE_TASKS, new String[] { COL_ID, COL_NAME,
-                        COL_DUREE,COL_DATE }, COL_NAME + " LIKE \"" + name + "\"", null, null,
-                null, COL_NAME);
-        return cursorToTask(c);
-    }
-
-    public Task cursorToTask(Cursor c) {
-        if (c.getCount() == 0) {
-            c.close();
-            return null;
-        }
-        Task task = new Task();
-        task.setName(c.getString(NUM_COL_NAME));
-
-        c.close();
-        return task;
     }
 
 

@@ -1,9 +1,7 @@
 package com.example.ei_appm;
 
-import java.util.Date;
 
 public class Task {
-
     private String name;
     private int duree;
     private String date;
@@ -32,7 +30,6 @@ public class Task {
         this.date = date;
     }
 
-
     public String getName() {
         return name;
     }
@@ -44,7 +41,7 @@ public class Task {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Nom de la tâche = " + name + "\n" + "Durée de la tâche = " + duree + "\n" + "Date de la tâche = " + date);
+        sb.append("Nom de la tâche = " + name + "\n" + "Durée = " + duree + "\n" + "Date = " + date);
         return sb.toString();
     }
 
