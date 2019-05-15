@@ -10,6 +10,7 @@ public class TaskDataBase extends SQLiteOpenHelper {
         private static final String COL_ID = "ID";
         private static final String COL_NAME = "NAME";
 
+
         private static final String CREATE_BDD = "CREATE TABLE " + TABLE_TASKS + " (" +
                 COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COL_NAME + " TEXT NOT NULL);";
 

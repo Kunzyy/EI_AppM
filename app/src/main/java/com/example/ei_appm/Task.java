@@ -31,7 +31,7 @@ public class Task {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Nom du livre = " + name + "\n" + "Description du livre = " + description);
+        sb.append("Nom de la tâche = " + name + "\n" + "Description de la tâche = " + description);
         return sb.toString();
     }
 
