@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".affiche"></activity>
+        <activity android:name=".supprimer"></activity>
+        <activity android:name=".ajout" />
+        <activity android:name=".affiche" />
         <activity android:name=".modif" />
         <activity android:name=".MainActivity">
             <intent-filter>

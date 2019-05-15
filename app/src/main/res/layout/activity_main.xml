@@ -1,12 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:orientation="vertical" >
 
-    <ListView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/taskList" />
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
 
+    <Button
+        android:id="@+id/bajout"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:text="Ajouter une tâche"
+        android:visibility="visible"
+        tools:visibility="visible" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="75dp" />
+
+    <Button
+        android:id="@+id/bmodif"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:text="Modifer une tâche" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="75dp" />
+
+    <Button
+        android:id="@+id/bsupp"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:text="Supprimer une tâche" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="75dp" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:text="Afficher les tâches" />
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </TableLayout>
 </LinearLayout>
