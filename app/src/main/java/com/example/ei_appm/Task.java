@@ -10,7 +10,8 @@ public class Task {
 
     public Task() {}
 
-    public Task(String name, int duree, Date date) {
+    public Task(int id,String name, int duree, Date date) {
+        this.id = id;
         this.name = name;
         this.duree = duree;
         this.date = date;

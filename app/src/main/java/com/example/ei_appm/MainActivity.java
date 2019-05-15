@@ -1,5 +1,8 @@
 package com.example.ei_appm;
 
+
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
@@ -17,14 +20,14 @@ public class MainActivity extends AppCompatActivity {
 
         ListView list = (ListView) findViewById(R.id.taskList);
 
-        Task task1 = new Task("Exemple de tâche", 3,new Date(2019,5,15));
+        Task task1 = new Task(42,"Exemple de tâche", 3,new Date(2019,5,15));
 
-        TaskBDD livreBdd = new TaskBDD(this);
-        livreBdd.openForWrite();
-        livreBdd.insertTask(task1);
+        TaskBDD taskBDD = new TaskBDD(this);
+        taskBDD.openForWrite();
+        taskBDD.insertTask(task1);
 
-        ArrayList<Task> livreList = livreBdd.getAllTasks();
-        livreBdd.close();
+        ArrayList<Task> livreList = taskBDD.getAllTasks();
+        taskBDD.close();
         ArrayAdapter<Task> adapter = new ArrayAdapter<Task>(this, android.R.layout.simple_list_item_1, livreList);
         list.setAdapter(adapter);
 
