@@ -17,20 +17,28 @@ public class affiche extends AppCompatActivity {
 
         ListView list = (ListView) findViewById(R.id.taskList);
         TextView txt = (TextView) findViewById(R.id.result_sum);
+        TextView txt2 = (TextView) findViewById(R.id.txtList);
+
 
         TaskBDD taskBDD = new TaskBDD(this);
         taskBDD.openForWrite();
         ArrayList<Task> taskList = taskBDD.getAllTasks();
         taskBDD.close();
 
-        int sumHours = 0;
-        for (Task i : taskList)
-        {
-            sumHours+= i.getDuree();
+        System.out.println(taskList);
+        if(taskList != null) {
+            int sumHours = 0;
+            for (Task i : taskList) {
+                sumHours += i.getDuree();
+            }
+            txt.setText("Vous avez passé " + sumHours + " heures sur votre projet");
+            ArrayAdapter<Task> adapter = new ArrayAdapter<Task>(this, android.R.layout.simple_list_item_1, taskList);
+            list.setAdapter(adapter);
         }
-        txt.setText("Vous avez passé " + sumHours + " heures sur votre projet");
-        ArrayAdapter<Task> adapter = new ArrayAdapter<Task>(this, android.R.layout.simple_list_item_1, taskList);
-        list.setAdapter(adapter);
+        else {
+            txt.setText("Aucune tâche");
+            txt2.setText("");
+        }
     }
 
 

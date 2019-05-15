@@ -23,17 +23,20 @@ public class modif extends AppCompatActivity {
                 int eduree =  Integer.parseInt(findViewById(R.id.et2).toString());
                 String etache =  findViewById(R.id.et1).toString();
                 Task task1 = new Task(etache, eduree,edate);
-                TaskBDD taskBDD = new TaskBDD(this);
-                taskBDD.openForWrite();
-                taskBDD.updateTask(task1);
+                writeBDD(task1);
 
                 Intent main_acti = new Intent(modif.this, MainActivity.class);
                 startActivity(main_acti);
             }
         });
 
+    }
 
-
-
+    private void writeBDD(Task task1)
+    {
+        TaskBDD taskBDD = new TaskBDD(this);
+        taskBDD.openForWrite();
+        taskBDD.updateTask(task1);
+        taskBDD.close();
     }
 }

@@ -21,7 +21,8 @@ android:orientation="vertical" >
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:textSize="18dp"
-        android:text="Liste des tâches : "/>
+        android:text="Liste des tâches : "
+        android:id="@+id/txtList"/>
 
     <TextView
         android:layout_width="fill_parent"

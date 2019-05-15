@@ -54,16 +54,11 @@ public class TaskBDD {
     }
 
     public void deleteTask(String name) {
-        String request = "DELETE FROM " + TABLE_TASKS + " WHERE " + COL_NAME +" = " +name+";";
+        String request = "DELETE FROM " + TABLE_TASKS + " WHERE " + COL_NAME +" = '" + name +"' ;";
         System.out.println(request);
         bdd.execSQL(request);
     }
 
-
-
-    public int removeTask(String name) {
-        return bdd.delete(TABLE_TASKS, COL_NAME + " = " + name, null);
-    }
 
 
     public ArrayList<Task> getAllTasks() {
@@ -74,20 +69,20 @@ public class TaskBDD {
 
         c.moveToFirst();
 
-
+        System.out.println(c.getCount());
         if (c.getCount() == 0) {
             c.close();
             return null;
         }
         System.out.println("Coucou");
         ArrayList<Task> taskList = new ArrayList<> ();
-        while (c.moveToNext()) {
+        do {
             Task task = new Task();
             task.setName(c.getString(c.getColumnIndex(COL_NAME)));
             task.setDuree(c.getInt(c.getColumnIndex(COL_DUREE)));
             task.setDate(c.getString(c.getColumnIndex(COL_DATE)));
             taskList.add(task);
-        }
+        }while (c.moveToNext());
         c.close();
         return taskList;
     }

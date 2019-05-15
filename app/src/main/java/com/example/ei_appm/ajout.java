@@ -22,21 +22,32 @@ public class ajout extends AppCompatActivity {
         baj.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String edate =  findViewById(R.id.et1).toString();
-                String eduree =  findViewById(R.id.et2).toString();
-                System.out.println(eduree);
-                String etache =  findViewById(R.id.et3).toString();
-                /*Task task1 = new Task(etache, eduree,edate);
-                TaskBDD taskBDD = new TaskBDD(getParent());
-                taskBDD.openForWrite();
-                taskBDD.insertTask(task1);
-                taskBDD.close();*/
 
+                EditText et1 = findViewById(R.id.et1);
+                EditText et2 = findViewById(R.id.et2);
+                EditText et3 = findViewById(R.id.et3);
+
+
+
+                String edate = et1.getText().toString();
+                int eduree = Integer.parseInt(et2.getText().toString());
+                System.out.println("Test : " + eduree);
+                String etache = et3.getText().toString();
+                Task task1 = new Task(etache, eduree, edate);
+                writeBDD(task1);
 
                 Intent main_acti = new Intent(ajout.this, MainActivity.class);
                 startActivity(main_acti);
             }
         });
+    }
+
+    private void writeBDD(Task task1)
+    {
+        TaskBDD taskBDD = new TaskBDD(this);
+        taskBDD.openForWrite();
+        taskBDD.insertTask(task1);
+        taskBDD.close();
     }
 
 }

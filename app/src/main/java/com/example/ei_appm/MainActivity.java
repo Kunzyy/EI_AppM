@@ -18,13 +18,6 @@ public class MainActivity extends AppCompatActivity {
         Button btn_supp = (Button) findViewById(R.id.bsupp);
         Button btn_affiche = (Button) findViewById(R.id.button4);
 
-
-        Task task1 = new Task("Exemple de tâche", 3,"15/09/19");
-
-        TaskBDD taskBDD = new TaskBDD(this);
-        taskBDD.openForWrite();
-        taskBDD.insertTask(task1);
-
         btn_ajout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -35,13 +28,13 @@ public class MainActivity extends AppCompatActivity {
 
         btn_modif.setOnClickListener(new View.OnClickListener() { @Override
         public void onClick(View view) {
-            Intent afficheActivity = new Intent(MainActivity.this, affiche.class);
+            Intent afficheActivity = new Intent(MainActivity.this, modif.class);
             startActivity(afficheActivity);
         } });
 
         btn_supp.setOnClickListener(new View.OnClickListener() { @Override
         public void onClick(View view) {
-            Intent afficheActivity = new Intent(MainActivity.this, affiche.class);
+            Intent afficheActivity = new Intent(MainActivity.this, supprimer.class);
             startActivity(afficheActivity);
         } });
 
