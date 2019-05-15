@@ -3,15 +3,14 @@ package com.example.ei_appm;
 import java.util.Date;
 
 public class Task {
-    private int id;
+
     private String name;
     private int duree;
     private String date;
 
     public Task() {}
 
-    public Task(int id,String name, int duree, String date) {
-        this.id = id;
+    public Task(String name, int duree, String date) {
         this.name = name;
         this.duree = duree;
         this.date = date;
@@ -33,13 +32,6 @@ public class Task {
         this.date = date;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getName() {
         return name;
