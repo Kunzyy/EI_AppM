@@ -1,46 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:gravity="fill"
-    android:orientation="vertical"
-    tools:context=".MainActivity">
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
 
-    <EditText
-        android:id="@+id/txt_name"
-        android:layout_width="match_parent"
+    <ListView
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:contentDescription="Name"
-        android:ems="10"
-        android:inputType="textPersonName" />
-
-    <EditText
-        android:id="@+id/txt_contact"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:contentDescription="Contact"
-        android:ems="10"
-        android:inputType="number" />
-
-    <Button
-        android:id="@+id/btn_DB"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="CREATE and INSERT" />
-
-    <View
-        android:id="@+id/divider"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="?android:attr/listDivider"
-        android:visibility="visible" />
-    <TextView
-        android:id="@+id/txtContent"
-        android:layout_width="397dp"
-        android:layout_height="506dp"
-        android:layout_marginEnd="352dp"
-        android:layout_marginRight="352dp" />
+        android:id="@+id/taskList" />
 
 </LinearLayout>
